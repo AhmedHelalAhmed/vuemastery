@@ -24,10 +24,10 @@
 
                 <p v-if="inventory>10">In Stock</p>
                 <p v-else-if="inventory <= 10 && inventory > 0">Almost sold out!</p>
-                <p v-else>Out of Stock</p>
+                <p :class="{ outOfStock: !inStock }" v-else>Out of Stock</p>
                 <span v-show="onSale">On Sale!</span>
                 <p v-if="inStock">In Stock</p>
-                <p v-else>Out of Stock</p>
+                <p :class="{ outOfStock: !inStock }" v-else>Out of Stock</p>
                 <!--
                     V-show only toggles visibility, it does not insert or remove the element from the DOM.
                      display = none
@@ -49,10 +49,11 @@
                 </ul>
 
 
-                <button v-on:click="cart+=1">Add to Cart</button>
+                <button v-on:click="cart+=1" :class="{ disabledButton: !inStock}" :disabled="!inStock">Add to
+                    Cart</button>
 
 
-                <button @click="addToCart">Add to Cart</button>
+                <button @click="addToCart" :disabled="!inStock">Add to Cart</button>
 
                 <div class="cart">
                     <p>Cart({{cart}})</p>
@@ -63,6 +64,10 @@
 
                 <!-- task 5 https://codepen.io/AhmedHelalAhmed/pen/qgeWPG -->
 
+
+                <div v-for="variant in variants" :key="variant.variantColor" class="color-box"
+                    :style="{ backgroundColor:variant.variantColor }" @mouseover="updateProduct(variant.variantImage)">
+                </div>
             </div>
 
 
