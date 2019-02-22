@@ -39,7 +39,7 @@
 
 
                 <div v-for="variant in variants" :key="variant.variantId">
-                    <p>{{variant.variantColor}}</p>
+                    <p @mouseover="updateProduct(variant.variantImage)">{{variant.variantColor}}</p>
                 </div>
 
                 <!-- task 4 https://codepen.io/AhmedHelalAhmed/pen/mvNbyd -->
@@ -47,6 +47,22 @@
                 <ul>
                     <li v-for="size in sizes">{{ size }}</li>
                 </ul>
+
+
+                <button v-on:click="cart+=1">Add to Cart</button>
+
+
+                <button @click="addToCart">Add to Cart</button>
+
+                <div class="cart">
+                    <p>Cart({{cart}})</p>
+                </div>
+
+
+                <button @click="removeFromCart">Remove from Cart</button>
+
+                <!-- task 5 https://codepen.io/AhmedHelalAhmed/pen/qgeWPG -->
+
             </div>
 
 
