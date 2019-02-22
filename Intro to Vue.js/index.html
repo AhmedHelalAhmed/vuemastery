@@ -26,12 +26,27 @@
                 <p v-else-if="inventory <= 10 && inventory > 0">Almost sold out!</p>
                 <p v-else>Out of Stock</p>
                 <span v-show="onSale">On Sale!</span>
+                <p v-if="inStock">In Stock</p>
+                <p v-else>Out of Stock</p>
                 <!--
                     V-show only toggles visibility, it does not insert or remove the element from the DOM.
                      display = none
                 -->
                 <!-- task 3 https://codepen.io/AhmedHelalAhmed/pen/KJjOBg-->
+                <ul>
+                    <li v-for="detail in details">{{detail}}</li>
+                </ul>
 
+
+                <div v-for="variant in variants" :key="variant.variantId">
+                    <p>{{variant.variantColor}}</p>
+                </div>
+
+                <!-- task 4 https://codepen.io/AhmedHelalAhmed/pen/mvNbyd -->
+
+                <ul>
+                    <li v-for="size in sizes">{{ size }}</li>
+                </ul>
             </div>
 
 
