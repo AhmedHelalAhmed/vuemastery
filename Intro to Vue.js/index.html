@@ -21,6 +21,17 @@
                 <p>{{description}}</p>
                 <!-- task2 https://codepen.io/AhmedHelalAhmed/pen/QYXeyW-->
                 <a :href="link" target="_blank">More products like this</a>
+
+                <p v-if="inventory>10">In Stock</p>
+                <p v-else-if="inventory <= 10 && inventory > 0">Almost sold out!</p>
+                <p v-else>Out of Stock</p>
+                <span v-show="onSale">On Sale!</span>
+                <!--
+                    V-show only toggles visibility, it does not insert or remove the element from the DOM.
+                     display = none
+                -->
+                <!-- task 3 https://codepen.io/AhmedHelalAhmed/pen/KJjOBg-->
+
             </div>
 
 
