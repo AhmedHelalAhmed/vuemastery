@@ -20,3 +20,5 @@ https://codepen.io/AhmedHelalAhmed/pen/qgeWPG
 # task 6
 https://codepen.io/AhmedHelalAhmed/pen/WPVeWz
 
+# task 7
+https://codepen.io/AhmedHelalAhmed/pen/rNxzmpq
