@@ -60,11 +60,11 @@
           <button @click="removeFromCart">Remove from Cart</button>
 
           <div
-            v-for="variant in variants"
-            :key="variant.variantId"
+            v-for="(variant,index) in variants"
+            :key="variant.index"
             class="color-box"
             :style="{ backgroundColor: variant.variantColor }"
-            @mouseover="updateProduct(variant.variantImage)"
+            @mouseover="updateProduct(index)"
           ></div>
         </div>
       </div>
