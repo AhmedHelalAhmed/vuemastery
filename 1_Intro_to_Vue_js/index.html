@@ -19,7 +19,6 @@
           <h1>{{ title }}</h1>
           <!-- this called expression -->
           <p>{{description}}</p>
-          <!-- task2 https://codepen.io/AhmedHelalAhmed/pen/QYXeyW-->
           <a :href="link" target="_blank">More products like this</a>
 
           <p v-if="inventory>10">In Stock</p>
@@ -32,7 +31,6 @@
                     V-show only toggles visibility, it does not insert or remove the element from the DOM.
                      display = none
                 -->
-          <!-- task 3 https://codepen.io/AhmedHelalAhmed/pen/KJjOBg-->
           <ul>
             <li v-for="detail in details">{{detail}}</li>
           </ul>
@@ -42,8 +40,6 @@
               {{variant.variantColor}}
             </p>
           </div>
-
-          <!-- task 4 https://codepen.io/AhmedHelalAhmed/pen/mvNbyd -->
 
           <ul>
             <li v-for="size in sizes">{{ size }}</li>
@@ -63,8 +59,6 @@
 
           <button @click="removeFromCart">Remove from Cart</button>
 
-          <!-- task 5 https://codepen.io/AhmedHelalAhmed/pen/qgeWPG -->
-
           <div
             v-for="variant in variants"
             :key="variant.variantId"
@@ -73,8 +67,6 @@
             @mouseover="updateProduct(variant.variantImage)"
           ></div>
         </div>
-
-        <!-- task 6 https://codepen.io/AhmedHelalAhmed/pen/WPVeWz -->
       </div>
     </div>
     <!--
