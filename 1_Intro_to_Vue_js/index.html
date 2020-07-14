@@ -11,65 +11,7 @@
   <body>
     <div class="nav-bar"></div>
     <div id="app">
-      <div class="product">
-        <div class="product-image">
-          <img v-bind:src="image" :alt="altText" />
-        </div>
-        <div class="product-info">
-          <h1>{{ title }}</h1>
-          <!-- this called expression -->
-          <p>{{description}}</p>
-          <a :href="link" target="_blank">More products like this</a>
-
-          <p v-if="inventory>10">In Stock</p>
-          <p v-else-if="inventory <= 10 && inventory > 0">Almost sold out!</p>
-          <p :class="{ outOfStock: !inStock }" v-else>Out of Stock</p>
-          <span v-show="onSale">On Sale!</span>
-          <p v-if="inStock">In Stock</p>
-          <p :class="{ outOfStock: !inStock }" v-else>Out of Stock</p>
-          <p>{{ sale }}</p>
-
-          <!--
-                    V-show only toggles visibility, it does not insert or remove the element from the DOM.
-                     display = none
-                -->
-          <ul>
-            <li v-for="detail in details">{{detail}}</li>
-          </ul>
-
-          <div v-for="(variant,index) in variants" :key="variant.variantColor">
-            <p @mouseover="updateProduct(index)">
-              {{variant.variantColor}}
-            </p>
-          </div>
-
-          <ul>
-            <li v-for="size in sizes">{{ size }}</li>
-          </ul>
-
-          <button
-            v-on:click="cart+=1"
-            :class="{ disabledButton: !inStock}"
-            :disabled="!inStock"
-          >
-            Add to Cart
-          </button>
-
-          <div class="cart">
-            <p>Cart({{cart}})</p>
-          </div>
-
-          <button @click="removeFromCart">Remove from Cart</button>
-
-          <div
-            v-for="(variant,index) in variants"
-            :key="variant.index"
-            class="color-box"
-            :style="{ backgroundColor: variant.variantColor }"
-            @mouseover="updateProduct(index)"
-          ></div>
-        </div>
-      </div>
+      <product></product>
     </div>
     <!--
 
