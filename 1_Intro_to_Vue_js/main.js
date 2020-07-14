@@ -1,4 +1,10 @@
 Vue.component("product", {
+  props: {
+    premium: {
+      type: Boolean,
+      required: true,
+    },
+  },
   template: `
   <div class="product">
   <div class="product-image">
@@ -17,6 +23,9 @@ Vue.component("product", {
     <p v-if="inStock">In Stock</p>
     <p :class="{ outOfStock: !inStock }" v-else>Out of Stock</p>
     <p>{{ sale }}</p>
+
+    <p>User is premium: {{ premium }} </p>
+    <p>Shipping: {{ shipping }} </p>
 
     <!--
               V-show only toggles visibility, it does not insert or remove the element from the DOM.
@@ -120,9 +129,18 @@ Vue.component("product", {
       }
       return this.brand + " " + this.product + " are not on sale";
     },
+    shipping() {
+      if (this.premium) {
+        return "Free";
+      }
+      return 2.99;
+    },
   },
 });
 
 var app = new Vue({
   el: "#app",
+  data: {
+    premium: true,
+  },
 });
